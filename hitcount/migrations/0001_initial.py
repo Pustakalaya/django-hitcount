@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 from django.conf import settings
+import uuid
 
 
 class Migration(migrations.Migration):
@@ -62,7 +63,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('hits', models.PositiveIntegerField(default=0)),
                 ('modified', models.DateTimeField(auto_now=True)),
-                ('object_pk', models.PositiveIntegerField(verbose_name='object ID')),
+                ('object_pk', models.UUIDField(verbose_name='object ID', default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('content_type', models.ForeignKey(related_name='content_type_set_for_hitcount',
                                                    to='contenttypes.ContentType')),
             ],

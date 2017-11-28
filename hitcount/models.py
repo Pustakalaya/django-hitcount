@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from datetime import timedelta
+import uuid
 
 from django.db import models
 from django.conf import settings
@@ -42,7 +43,7 @@ class HitCount(models.Model):
     modified = models.DateTimeField(auto_now=True)
     content_type = models.ForeignKey(
         ContentType, related_name="content_type_set_for_%(class)s", on_delete=models.CASCADE)
-    object_pk = models.PositiveIntegerField('object ID')
+    object_pk = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     content_object = GenericForeignKey('content_type', 'object_pk')
 
     objects = HitCountManager()
