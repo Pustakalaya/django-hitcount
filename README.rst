@@ -12,6 +12,7 @@ django-hitcount
      :alt: Requirements Status
 
 Basic app that allows you to track the number of hits/views for a particular object.
+This is the modified version of upstream to work with UUID field when django models has the primary id of UUID
 
 Documentation:
 --------------
