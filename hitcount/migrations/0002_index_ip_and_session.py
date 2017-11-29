@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import uuid
 
 
 class Migration(migrations.Migration):
@@ -24,6 +25,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='hitcount',
             name='object_pk',
-            field=models.PositiveIntegerField(verbose_name='object ID'),
+            field=models.UUIDField(verbose_name='object ID')
         ),
     ]
